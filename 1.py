@@ -43,12 +43,15 @@ Answer:
 class Solution(object):
     def twoSum(self, nums, target):
         # 可选：基本校验（不写也能过 LeetCode）
+        # 如果超过这个数据范围的话就返回None
         if len(nums) < 2 or len(nums) > 10**4:
             return None
         if target < -10**9 or target > 10**9:
             return None
 
+        # 建立空的字典
         seen = {}  # value -> index
+        # 使用枚举，经历一遍nums里的所有值，enumerate(nums) 返回的每一项本来就是一个二元组 (index, value)，顺序固定
         for i, x in enumerate(nums):
             need = target - x
             if need in seen:
